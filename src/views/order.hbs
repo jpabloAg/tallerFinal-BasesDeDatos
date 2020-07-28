@@ -1,0 +1,72 @@
+{{> header}}
+
+<div class="row mt-5">
+    <div class="col-md-7 ml-3">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Valor</th>
+                    <th>Fecha entrega</th>
+                    <th>Cliente</th>
+                    <th>Vehiculo</th>
+                    <th>Viaje</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{codigo}}</td>
+                    <td>{{valor}}</td>
+                    <td>{{fechaEntrega}}</td>
+                    <td>{{cliente}}</td>
+                    <td>{{vehiculo}}</td>
+                    <td>{{viaje}}</td>
+                    <td>
+                        <a href="/order-delete/{{codigo}}"><i class="far fa-trash-alt" style="color:red"></i></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4 mr-3">
+        <div class="card">
+            <div class="card-body">
+                <form action="/order-save" method="post">
+                    <div class="form-group">
+                        <input type="text" id="cd" name="codigo" placeholder="Codigo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="valor" placeholder="Valor" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="fecha" name="fechaEntrega" readonly placeholder="Fecha entrega" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="cliente" placeholder="Cliente" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="vehiculo" placeholder="Vehiculo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="viaje" placeholder="Viaje" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        console.log('jquery on ready');
+        $('#fecha').datepicker();
+    });
+
+    document.getElementById('cd').focus();
+</script>
+
+{{> footer}}

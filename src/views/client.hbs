@@ -1,0 +1,69 @@
+{{> header }}
+
+
+<div class="row mt-5">
+    <div class="col-md-7 ml-3">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>email</th>
+                    <th>dirección</th>
+                    <th>telefono</th>
+                    <th>metodo pago</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{cedula}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{email}}</td>
+                    <td>{{direccion}}</td>
+                    <td>{{telefono}}</td>
+                    <td>{{metodoPago}}</td>
+                    <td>
+                        <a href="/client-delete/{{cedula}}"><i class="far fa-trash-alt" style="color:red"></i></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4 mr-3">
+        <div class="card">
+            <div class="card-body">
+                <form action="/client-save" method="post">
+                    <div class="form-group">
+                        <input type="text" name="cedula" placeholder="Cedula" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="email" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="direccion" placeholder="Direccion" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="telefono" placeholder="Telefono" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Metodo de pago</label>
+                        <select name="metodoPago" class="form-control" id="exampleFormControlSelect1">
+                            <option value="efectivo">efectivo</option>
+                            <option value="tarjeta">tarjeta</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{> footer}}
