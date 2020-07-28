@@ -1,6 +1,8 @@
 CREATE DATABASE crudnodejsmysql;
 USE crudnodejsmysql;
 
+-- Table Gerente
+
 -- Table client
 CREATE TABLE client(
     cedula VARCHAR(10) NOT NULL PRIMARY KEY,
@@ -11,7 +13,7 @@ CREATE TABLE client(
     metodoPago VARCHAR(10) NOT NULL
 );
 
--- Table database
+-- Table orders
 CREATE TABLE orders(
     codigo VARCHAR(10) NOT NULL,
     valor INT(10) NOT NULL,
