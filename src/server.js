@@ -10,6 +10,8 @@ const path = require('path');
 const clientRoutes = require('./routes/client.routes');
 const orderRoutes = require('./routes/order.routes');
 
+app.use(express.static(path.resolve(__dirname,'../public')));
+
 // settings
 app.set('port', process.env.PORT || 3000);
 hbs.registerPartials(path.join(__dirname, 'views','partials'));
