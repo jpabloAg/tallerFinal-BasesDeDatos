@@ -1,0 +1,28 @@
+{{> header}}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Telefono</th>
+            <th>Metodo de pago</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{cedula}}</td>
+            <td>{{nombre}}</td>
+            <td>{{email}}</td>
+            <td>{{direccion}}</td>
+            <td>{{telefono}}</td>
+            <td>{{metodoPago}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{> footer}}

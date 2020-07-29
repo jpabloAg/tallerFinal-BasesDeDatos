@@ -52,4 +52,15 @@ controller.delete = (req, res) => {
     });
 }
 
+controller.filteredSearch = (req, res) => {
+    const { search, filter } = req.body;
+    console.log(filter, search);
+    req.getConnection((err, connection) => {
+        connection.query(`SELECT * FROM client WHERE ${ filter } LIKE '%${ search }%'`, (err, clientsDB) => {
+            console.log(clientsDB);
+            res.render('search', { data:clientsDB });
+        })
+    })
+}
+
 module.exports = controller;
